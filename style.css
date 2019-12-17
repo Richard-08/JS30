@@ -1,0 +1,53 @@
+html {
+  font-size: 10px;
+  background-image: url(https://initiate.alphacoders.com/images/172/cropped-1366-768-172698.jpg?2032);
+  background-position: 100% 100%;
+  /* background-size: 90vw; */
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keys {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.key {
+  border: 0.4rem solid whitesmoke;
+  border-radius: 50%;
+  margin: 10px;
+  font-size: 25px;
+  padding: 5px 5px;
+  transition: all 0.1s ease-out;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 0.5rem whitesmoke;
+  width: 80px;
+  height: 80px;
+}
+
+.playing {
+  transform: scale(1.3);
+  border-color: rgb(230, 28, 28);
+  box-shadow: 0 0 1rem rgb(230, 28, 28);
+  color: rgb(230, 28, 28);
+}
+
+kbd {
+  display: block;
+  font-size: 20px;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: whitesmoke;
+}
