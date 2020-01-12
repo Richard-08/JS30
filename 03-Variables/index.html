@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scoped CSS Variables and JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+
+    <div id="main">
+      <div class="controls">
+        <label for="translate">Translate:</label>
+        <input
+          id="translate"
+          name="translate"
+          type="range"
+          min="-200"
+          max="200"
+          value="0"
+          data-sizing="px"
+        />
+
+        <label for="spacing">Spacing:</label>
+        <input
+          id="spacing"
+          type="range"
+          name="spacing"
+          min="10"
+          max="200"
+          value="10"
+          data-sizing="px"
+        />
+
+        <label for="blur">Blur:</label>
+        <input
+          id="blur"
+          name="blur"
+          type="range"
+          min="0"
+          max="25"
+          value="10"
+          data-sizing="px"
+        />
+
+        <label for="base">Base Color:</label>
+        <input id="base" name="base" type="color" value="#ffc600" />
+      </div>
+
+      <img
+        src="https://www.telegraph.co.uk/content/dam/Travel/2016/june/summer-dolomites-alps-xlarge.jpg?imwidth=1200"
+      />
+    </div>
+
+    <script>
+      const inputs = document.querySelectorAll(".controls input");
+
+      function handleUpdate() {
+        const suffix = this.dataset.sizing || "";
+        document.documentElement.style.setProperty(
+          `--${this.name}`,
+          this.value + suffix
+        );
+      }
+
+      inputs.forEach(input => input.addEventListener("change", handleUpdate));
+      inputs.forEach(input =>
+        input.addEventListener("mousemove", handleUpdate)
+      );
+    </script>
+  </body>
+</html>

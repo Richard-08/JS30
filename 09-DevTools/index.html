@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+    }
+    div {
+      background: #bada55;
+      height: 30px;
+      width: 30px;
+      position: relative;
+      border-radius: 5px;
+      opacity: 0.5;
+      transition: ease-in-out;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+      display: flex;
+      justify-content: flex-end;
+
+    }
+  </style>
+  <body>
+    <!-- <p onclick="makeGreen()">×BREAK×DOWN×</p> -->
+    <div onclick="makeVisible()"></div>
+    <script>
+      function makeVisible() {
+        const div = document.querySelector("div");
+        div.style.width = '200px';
+        div.style.height = '100vh';
+        div.style.opacity = '1';
+      }
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      console.log("Hello");
+
+      console.log("Hello I am a %s string!", "💩");
+
+      /* console.log(
+        "%c I am some great text",
+        "font-size:50px; background:red; text-shadow: 10px 10px 0 blue"
+      ); */
+
+      console.warn("OOOH SHIT!");
+
+      console.info("Crocodiles eat 3-4 people per year");
+
+      // Testing
+      const p = document.querySelector("p");
+
+      console.assert(p.classList.contains("ouch"), "That is wrong!");
+
+      // clearing
+      console.clear();
+
+      // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
+
+      console.clear();
+
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 }
+      ];
+
+      // Grouping together
+      dogs.forEach(dog => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting
+      console.count("Wes");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+
+      // timing
+      console.time("fetching data");
+      fetch("https://api.github.com/users/wesbos")
+        .then(data => data.json())
+        .then(data => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+
+      console.table(dogs);
+    </script>
+  </body>
+</html>
